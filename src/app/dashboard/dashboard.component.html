@@ -2,7 +2,13 @@
     <a routerLink="/products" class="products" >Products</a>
     <input type="text" placeholder="Search...">
     <a routerLink="/cart" class="cart" >Cart</a>
-    <a routerLink="/login" class="login" >Login</a>
+    
+    <div *ngIf = "isLoggedIn === true">
+        <a class="logout" (click) = "logout()">logout</a>
+    </div>
+    <div *ngIf = "isLoggedIn === false">
+        <a routerLink="/login" class="login" >Login</a>
+    </div>
     
 </div>
 

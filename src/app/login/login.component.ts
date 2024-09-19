@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
 import { Router } from '@angular/router';
-import { user } from '../users';
+import { AuthService } from '../auth.service';
 
 @Component({
   selector: 'app-login',
@@ -16,11 +16,10 @@ export class LoginComponent {
 
   LoggedIn: boolean = false;
 
-  constructor(private router: Router){}
+  constructor(private router: Router, private authService:AuthService ){}
 
   Login(){
-    if(this.user.username == 'user' && this.user.password == '123'){
-      this.LoggedIn = true;
+    if (this.authService.login(this.user.username, this.user.password)) {
       this.router.navigateByUrl('/products');
     }
     else{
