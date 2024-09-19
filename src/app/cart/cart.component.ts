@@ -9,5 +9,5 @@ import { CartService } from '../cart.service';
 })
 export class CartComponent {
   constructor(private cartService: CartService){}
-  products: Product[] = this.cartService.getItems();
+  products: any[] = this.cartService.getItems();
 }

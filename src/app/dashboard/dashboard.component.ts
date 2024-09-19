@@ -7,10 +7,11 @@ import { Category, categories } from '../categories';
   styleUrl: './dashboard.component.css'
 })
 export class DashboardComponent {
-  @Input()  category: Category | undefined;
-  selectedCategory: Category | undefined;
+  @Input()  category: any | undefined;
+  @Input() LoggedIn: boolean = false;
+  selectedCategory: any | undefined;
 
-  getCategory(data: Category) {
+  getCategory(data: any) {
     this.selectedCategory = data;
   }
 }

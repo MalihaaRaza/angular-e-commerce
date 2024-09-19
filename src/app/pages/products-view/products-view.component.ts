@@ -1,27 +1,36 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { CartService } from '../../cart.service';
-import { Product,products } from '../../products';
+import { Product} from '../../products';
+import { ProductService } from '../../product.service';
 
 @Component({
   selector: 'app-products-view',
   templateUrl: './products-view.component.html',
   styleUrl: './products-view.component.css'
 })
-export class ProductsViewComponent {
-  product: Product | undefined;
+export class ProductsViewComponent implements OnInit{
+  product: any | undefined;
 
   constructor(
     private route: ActivatedRoute,
-    private cartService: CartService
+    private cartService: CartService,
+    private productService: ProductService
   ) { }
+
 
   ngOnInit() {
     // First get the product id from the current route.
     const routeParams = this.route.snapshot.paramMap;
     const productIdFromRoute = Number(routeParams.get('productId'));
-  
-    this.product = products.find(product => product.id === productIdFromRoute);
+    this.productService.getProduct(productIdFromRoute).subscribe((res:any) => {
+      this.product = res;
+      console.log(res)
+      },
+      (error) => {
+        console.error('Error fetching products:', error);
+      }
+    )
   }
 
   addToCart(product: Product) {

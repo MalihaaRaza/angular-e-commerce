@@ -1,13 +1,17 @@
 <h1>Cart</h1>
 
-<div *ngFor="let product of products">
+<div class = "cart-item" *ngFor="let product of products">
     <h3>
-        <a [title] = "product.name">
-            {{ product.name }}
-        </a>
-        {{product.price}}
-        
+        <p [title] = "product.title">
+            {{ product.title }}
+        </p>
     </h3>
+    <p [title] = "product.price">
+        price: {{product.price}}
+    </p>
+        
+        
+    
 </div>
 
 <button type="button"> Checkout </button>
