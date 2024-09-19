@@ -8,12 +8,12 @@ import { CartService } from '../cart.service';
   styleUrl: './product-item.component.css'
 })
 export class ProductItemComponent {
-  @Input() product!: Product;
+  @Input() product!: any;
 
   constructor( private cartService: CartService ) 
   { }
 
-  addToCart(product: Product) {
+  addToCart(product: any) {
     this.cartService.addToCart(product);
     window.alert('Your product has been added to the cart!');
   }

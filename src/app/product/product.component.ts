@@ -8,32 +8,34 @@ import { ProductService } from '../product.service';
   templateUrl: './product.component.html',
   styleUrl: './product.component.css'
 })
-export class ProductComponent implements OnInit, OnChanges{
+export class ProductComponent implements OnInit{
 
   constructor(private productService: ProductService){}
   
   products: any[] = [];
 
-  selectedProduct: Product | undefined;
+  selectedProduct: any | undefined;
   @Input() selectedCategory: Category | undefined;
 
   ngOnInit() {
-    if(this.selectedCategory == undefined){
-      this.productService.getProducts().subscribe((res:any)=>{
-          this.products = res.data;
-          console.log(res.data)
+      this.productService.getProducts().subscribe((res:any) => {
+          this.products = res;
+          console.log(res)
+      },
+      (error) => {
+        console.error('Error fetching products:', error);
       }
-    )}
+    )
   }
 
-  ngOnChanges(changes: SimpleChanges) {
-    if (changes['selectedCategory']) {
-      const previousValue = changes['selectedCategory'].previousValue;
-      const currentValue = changes['selectedCategory'].currentValue;
-      this.products = products.filter(p => this.selectedCategory?.name == p.category);
-    }
-  }
+  // ngOnChanges(changes: SimpleChanges) {
+  //   if (changes['selectedCategory']) {
+  //     const previousValue = changes['selectedCategory'].previousValue;
+  //     const currentValue = changes['selectedCategory'].currentValue;
+  //     this.products = products.filter(p => this.selectedCategory?.name == p.category);
+  //   }
+  // }
 
-  selectProduct(product: Product) { this.selectedProduct = product; }
+  selectProduct(product: any) { this.selectedProduct = product; }
 
 }

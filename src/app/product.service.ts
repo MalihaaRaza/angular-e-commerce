@@ -7,7 +7,7 @@ import { HttpClient } from '@angular/common/http';
 })
 export class ProductService {
 
-  items: Product[] = products;
+  items: any;
   constructor(private http: HttpClient) { }
 
   getProducts() {
