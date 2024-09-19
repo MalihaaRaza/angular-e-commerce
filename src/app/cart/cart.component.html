@@ -1,0 +1,13 @@
+<h1>Cart</h1>
+
+<div *ngFor="let product of products">
+    <h3>
+        <a [title] = "product.name">
+            {{ product.name }}
+        </a>
+        {{product.price}}
+        
+    </h3>
+</div>
+
+<button type="button"> Checkout </button>

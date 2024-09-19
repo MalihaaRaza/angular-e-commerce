@@ -1,0 +1,31 @@
+h3 {
+    color: white;
+}
+
+.container {
+    background-color: #333;
+    overflow: hidden;
+    display: flex;
+    justify-content: space-between;
+}
+
+
+.product-list {
+    width: 80%;
+    display: flex;
+    justify-content: space-between;
+    padding: 16px 32px;
+    margin-bottom: 8px;
+    border-radius: 2px;
+    background-color: #EEEEEE;
+}
+.categories-list {
+    width: 20%;
+    float: right;
+    justify-content: space-between;
+    padding: 16px 32px;
+    margin-bottom: 8px;
+    border-radius: 2px;
+    background-color: #333;
+    color: white;
+}
