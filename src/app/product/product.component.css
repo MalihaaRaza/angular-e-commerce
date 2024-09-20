@@ -1,0 +1,32 @@
+/* .product-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+    column-gap: 130px;
+    padding: 0px;
+  } */
+
+input[type="text"] {
+    padding: 6px;
+    margin: 8px 16px;
+    font-size: 17px;
+    border: none;
+    border-radius: 4px;
+    border-color: #333;
+}
+
+.product-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr)); /* Responsive columns */
+  gap: 20px; /* Adjust the spacing between grid items */
+  padding: 20px; /* Optional: add some padding around the grid */
+}
+
+.product-grid app-product-item {
+  display: flex; /* Ensure the product item is a flex container */
+  flex-direction: column;
+  background: #fff; /* Optional: background for each product item */
+  border: 1px solid #ddd; /* Optional: border around each item */
+  border-radius: 8px; /* Optional: rounded corners */
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1); /* Optional: shadow for a slight lift effect */
+  overflow: hidden;
+}

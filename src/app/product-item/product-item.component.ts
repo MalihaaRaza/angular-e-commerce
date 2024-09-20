@@ -1,5 +1,5 @@
 import { Component, Input } from '@angular/core';
-import { Product } from '../products';
+import { AuthService } from '../auth.service';
 import { CartService } from '../cart.service';
 
 @Component({
@@ -9,9 +9,14 @@ import { CartService } from '../cart.service';
 })
 export class ProductItemComponent {
   @Input() product!: any;
+  isLoggedIn: boolean = false;
 
-  constructor( private cartService: CartService ) 
+  constructor( private authService:AuthService,private cartService: CartService ) 
   { }
+
+  ngOnInit(){
+    this.isLoggedIn = this.authService.isLoggedIn();
+  }
 
   addToCart(product: any) {
     this.cartService.addToCart(product);

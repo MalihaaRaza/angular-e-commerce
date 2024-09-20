@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { CartService } from '../../cart.service';
 import { Product} from '../../products';
+import { AuthService } from '../../auth.service';
 import { ProductService } from '../../product.service';
 
 @Component({
@@ -11,8 +12,10 @@ import { ProductService } from '../../product.service';
 })
 export class ProductsViewComponent implements OnInit{
   product: any | undefined;
+  isLoggedIn: boolean = false;
 
   constructor(
+    private authService:AuthService,
     private route: ActivatedRoute,
     private cartService: CartService,
     private productService: ProductService
@@ -31,6 +34,7 @@ export class ProductsViewComponent implements OnInit{
         console.error('Error fetching products:', error);
       }
     )
+    this.isLoggedIn = this.authService.isLoggedIn();
   }
 
   addToCart(product: Product) {

@@ -1,4 +1,4 @@
-<h3>
+<!-- <h3>
     <a 
         [title]= "product.title  + ' details'"
         [routerLink]="['/products', product.id]">
@@ -10,4 +10,26 @@
     Description: {{ product.description }}
 </p>
 
-<button type="button" (click)="addToCart(product)">Buy</button>
+<button type="button" (click)="addToCart(product)">Buy</button> -->
+
+<div class="container">
+    <div class="imgBx">
+        <img [src]="product.image" [alt]="product.image">
+    </div>
+    <div class="details">
+        <div class="content">
+            <h2><a 
+                [title]= "product.title  + ' details'"
+                [routerLink]="['/products', product.id]">
+                    {{ product.title }}
+                </a>
+            </h2>
+            <h3>price: {{ product.price }}</h3>
+            <div *ngIf = "isLoggedIn === true">
+                <button type="button" (click)="addToCart(product)">Buy</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+

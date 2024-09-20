@@ -2,10 +2,9 @@
 
 <div *ngFor="let category of categories">
     <h3>
-        <a [title] = "category" (click)="selectCategory(category)">
+        <a [title] = "category" (click)="selectCategory(category);  $event.preventDefault();">
             {{ category }}
         </a>
-        <button type="button" (click)="selectCategory(category)"> {{ category }}</button>
     </h3>
 </div>
 

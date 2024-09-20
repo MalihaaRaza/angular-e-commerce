@@ -8,13 +8,12 @@ import { CategoriesComponent } from './categories/categories.component';
 import { ProductsViewComponent } from './pages/products-view/products-view.component';
 
 const routes: Routes = [
-  { path: '', redirectTo: 'login', pathMatch: 'full' },
+  { path: '', redirectTo: 'products', pathMatch: 'full' },
   { path: 'login', component: LoginComponent },
   { path: 'products/:productId', component: ProductsViewComponent },
   { path: 'cart', component:CartComponent },
   { path: '', component:DashboardComponent, children:[
     { path: 'products', component:ProductComponent },
-    
     { path: 'categories', component:CategoriesComponent },
   ]}
 ];

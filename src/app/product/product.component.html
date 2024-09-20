@@ -1,4 +1,7 @@
 <h2>Products</h2>
-
-<app-product-item *ngFor="let product of filteredProducts" [product] = "product">
-</app-product-item>
+<input type="text" placeholder="Search..." name = "searchText" [(ngModel)]="searchText" (ngModelChange)="searchProduct($event)">
+<div class="item-number">{{filteredProducts.length}} items</div>
+<div class="product-grid">
+    <app-product-item *ngFor="let product of filteredProducts" [product] = "product">
+    </app-product-item>
+</div>

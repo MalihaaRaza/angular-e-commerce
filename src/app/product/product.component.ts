@@ -12,6 +12,7 @@ export class ProductComponent implements OnInit , OnChanges{
   
   products: any[] = [];
   filteredProducts: any[] = [];
+  searchText: string = "";
 
   selectedProduct: any | undefined;
   @Input() selectedCategory: any | undefined;
@@ -34,8 +35,16 @@ export class ProductComponent implements OnInit , OnChanges{
       const currentValue = changes['selectedCategory'].currentValue;
       this.filteredProducts = this.products.filter(p => this.selectedCategory == p.category);
     }
-    // console.log(this.filteredProducts);
   }
+
+  searchProduct(newSearchText: string) {
+    this.searchText = newSearchText;
+    this.filteredProducts = this.searchText 
+        ? this.products.filter(product => 
+            product.title.toLowerCase().includes(this.searchText.toLowerCase()))
+        : this.products; 
+}
+
 
   selectProduct(product: any) { this.selectedProduct = product; }
 

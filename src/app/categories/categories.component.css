@@ -29,3 +29,14 @@ h3 {
     background-color: #333;
     color: white;
 }
+
+a {
+    color: white; 
+    text-decoration: none; 
+    transition: color 0.3s; 
+    cursor: pointer;
+}
+
+a:hover {
+    color: rgba(255, 255, 255, 0.6); 
+}

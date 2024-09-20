@@ -1,5 +1,4 @@
 import { Component, Output, EventEmitter } from '@angular/core';
-import { Category, categories } from '../categories';
 import { ProductService } from '../product.service';
 
 @Component({
@@ -16,15 +15,14 @@ export class CategoriesComponent {
   constructor(private productService: ProductService){}
 
   ngOnInit() {
-    this.categories = [...categories];
     this.productService.getCategories().subscribe((res:any) => {
         this.categories = res;
-        // console.log(res)
       },
       (error) => {
         console.error('Error fetching categories:', error);
       }
     )
+    // this.categories = this.categories.map(c => c.toLowerCase());
   }
 
   selectCategory(category: any) { 

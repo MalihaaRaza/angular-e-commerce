@@ -6,7 +6,7 @@ import { Product } from './products';
 })
 export class CartService {
 
-  items: Product[] = [];
+  items: any[] = [];
   constructor() { }
 
   addToCart(product: Product) {
@@ -19,6 +19,10 @@ export class CartService {
 
   clearCart() {
     this.items = [];
+    return this.items;
+  }
+
+  CalcPrice(){
     return this.items;
   }
   

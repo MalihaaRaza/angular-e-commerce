@@ -10,6 +10,7 @@ import { Router } from '@angular/router';
 export class DashboardComponent implements OnInit {
   @Input()  category: any | undefined;
   @Input() LoggedIn: boolean = false;
+
   selectedCategory: any | undefined;
 
   user: any;
@@ -25,8 +26,8 @@ export class DashboardComponent implements OnInit {
     this.selectedCategory = data;
   }
 
-  logout() {
-    this.authService.logout();
-    this.router.navigate(['/login']);
-  }
+  // logout() {
+  //   this.authService.logout();
+  //   this.router.navigate(['/login']);
+  // }
 }

@@ -12,10 +12,10 @@ import { ProductComponent } from './product/product.component';
 import { CategoriesComponent } from './categories/categories.component';
 import { CartComponent } from './cart/cart.component';
 import { CartItemComponent } from './cart-item/cart-item.component';
-import { LandingComponent } from './pages/landing/landing.component';
 import { ProductsViewComponent } from './pages/products-view/products-view.component';
 import { ProductItemComponent } from './product-item/product-item.component';
 import { CartService } from './cart.service';
+import { NavbarComponent } from './navbar/navbar.component';
 
 @NgModule({
   declarations: [
@@ -26,9 +26,9 @@ import { CartService } from './cart.service';
     CategoriesComponent,
     CartComponent,
     CartItemComponent,
-    LandingComponent,
     ProductsViewComponent,
-    ProductItemComponent
+    ProductItemComponent,
+    NavbarComponent
   ],
   imports: [
     BrowserModule,

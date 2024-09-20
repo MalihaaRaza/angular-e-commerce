@@ -1,5 +1,4 @@
 import { Component } from '@angular/core';
-import { Product } from '../products';
 import { CartService } from '../cart.service';
 
 @Component({
@@ -10,4 +9,8 @@ import { CartService } from '../cart.service';
 export class CartComponent {
   constructor(private cartService: CartService){}
   products: any[] = this.cartService.getItems();
+
+  totalPrice():number {
+    return 3;
+  }
 }
